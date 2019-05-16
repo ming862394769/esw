@@ -30,23 +30,32 @@ class Index
             ->setToken('EasySwoole');
         $wechat->config()->setTempDir(EASYSWOOLE_ROOT.'/Log/');
         $wechat->officialAccount()->server()->preCall(function (RequestMsg $msg){
-            $reply = new RequestedReplyMsg();
-            $reply->setMsgType(RequestConst::MSG_TYPE_TEXT);
-            $reply->setContent('hello from server');
+            switch ($msg->getMsgType()) {
+                case RequestConst::MSG_TYPE_TEXT:
+                    $reply = Message::text($msg);
+                    break;
+                case RequestConst::MSG_TYPE_EVENT:
+                    $reply = Message::event($msg);
+                    break;
+                case RequestConst::MSG_TYPE_IMAGE:
+                    break;
+                case RequestConst::MSG_TYPE_VOICE:
+                    break;
+                case RequestConst::MSG_TYPE_VIDEO:
+                    break;
+                case RequestConst::MSG_TYPE_SHORT_VIDEO:
+                    break;
+                case RequestConst::MSG_TYPE_LOCATION:
+                    break;
+                case RequestConst::MSG_TYPE_LINK:
+                    break;
+                default:
+                    $reply = new RequestedReplyMsg();
+                    $reply->setMsgType(RequestConst::MSG_TYPE_TEXT);
+                    $reply->setContent('生活愉快！');
+            }
             return $reply;
         });
-
-        $wechat->officialAccount()->server()->onEvent()->onUnSubscribe(function (RequestMsg $msg){
-            var_dump("{$msg->getFromUserName()} has UBSCRIBE");
-        });
-
-        $wechat->officialAccount()->server()->onEvent()->set(RequestConst::DEFAULT_ON_EVENT,function (){
-            $reply = new RequestedReplyMsg();
-            $reply->setMsgType(RequestConst::MSG_TYPE_TEXT);
-            $reply->setContent('this is event default reply');
-            return $reply;
-        });
-
 
         if(isset($params['echostr']) && $params['echostr']) {
             if($this->accessCheck($params, $wechat)) {
