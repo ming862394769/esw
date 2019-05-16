@@ -25,6 +25,8 @@ class Index
             ->setToken('EasySwoole');
         $wechat->config()->setTempDir(EASYSWOOLE_ROOT.'/Log/');
         if(isset($params['echostr'])) {
+            echo $params['echostr'];
+            echo PHP_EOL;
             if($this->accessCheck($params, $wechat)) {
                 return is_string($params['echostr']) ? $params['echostr'] : '';
             }
