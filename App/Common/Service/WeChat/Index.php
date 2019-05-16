@@ -28,7 +28,9 @@ class Index
             ->setAppSecret('cf72d03538c1713562e2b75823eac2b4')
             ->setToken('EasySwoole');
         $wechat->config()->setTempDir(EASYSWOOLE_ROOT.'/Log/');
-
+        $wechat->officialAccount()->server()->preCall(function (RequestMsg $msg){
+            return $msg;
+        });
 
         $wechat->officialAccount()->server()->onMessage()->set('test',function (RequestMsg $msg){
             $reply = new RequestedReplyMsg();
