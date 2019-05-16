@@ -29,6 +29,8 @@ class Index
             ->setToken('EasySwoole');
         $wechat->config()->setTempDir(EASYSWOOLE_ROOT.'/Log/');
         $wechat->officialAccount()->server()->preCall(function (RequestMsg $msg){
+            $msg->setMsgType(RequestConst::MSG_TYPE_TEXT);
+            $msg->setContent('hello from server');
             return $msg;
         });
 
@@ -38,6 +40,32 @@ class Index
             $reply->setContent('hello from server');
             return $reply;
         });
+        $wechat->officialAccount()->server()->onMessage()->set(RequestConst::DEFAULT_ON_MESSAGE,function (RequestMsg $msg){
+            $reply = new RequestedReplyMsg();
+            $reply->setMsgType(RequestConst::MSG_TYPE_TEXT);
+            $reply->setContent('you say :'.$msg->getContent());
+            return $reply;
+        });
+
+        $wechat->officialAccount()->server()->onEvent()->onSubscribe(function (RequestMsg $msg){
+            var_dump("{$msg->getFromUserName()} has SUBSCRIBE");
+            $reply = new RequestedReplyMsg();
+            $reply->setMsgType(RequestConst::MSG_TYPE_TEXT);
+            $reply->setContent('Welcome to EasySwoole');
+            return $reply;
+        });
+
+        $wechat->officialAccount()->server()->onEvent()->onUnSubscribe(function (RequestMsg $msg){
+            var_dump("{$msg->getFromUserName()} has UBSCRIBE");
+        });
+
+        $wechat->officialAccount()->server()->onEvent()->set(RequestConst::DEFAULT_ON_EVENT,function (){
+            $reply = new RequestedReplyMsg();
+            $reply->setMsgType(RequestConst::MSG_TYPE_TEXT);
+            $reply->setContent('this is event default reply');
+            return $reply;
+        });
+
 
         if(isset($params['echostr']) && $params['echostr']) {
             if($this->accessCheck($params, $wechat)) {
