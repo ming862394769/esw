@@ -77,9 +77,7 @@ class Index
             $res = $wechat->officialAccount()->server()->parserRequest($raw);
             var_dump($res);
             if(is_string($res)){
-                $response = (new SplArray($res))->toXML();
-                var_dump($response);
-                return $response;
+                return $res;
             }
 
             /*$message = $wechat->officialAccount()->server()->onMessage();
