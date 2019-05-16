@@ -43,6 +43,7 @@ class Index
             }
         } else if(!empty($raw)) {
             $res = $wechat->officialAccount()->server()->parserRequest($raw);
+            var_dump($res);
             if(is_string($res)){
                 return $res;
             }
