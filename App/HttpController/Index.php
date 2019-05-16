@@ -14,7 +14,7 @@ class Index extends Base
     {
         $request = $this->request();
         print_r($request->getRequestParam());
-        $params = $this->getParams([], ['echostr', 'nonce', 'timestamp']);
+        $params = $this->getParams([], ['signature','echostr', 'nonce', 'timestamp']);
         $raw = $request->getMethod() == 'POST' ? $this->request()->getBody()->__toString() : [];
         $index = new IndexService();
         $result = $index->index($params, $raw);
