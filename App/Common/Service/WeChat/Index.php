@@ -30,9 +30,10 @@ class Index
             ->setToken('EasySwoole');
         $wechat->config()->setTempDir(EASYSWOOLE_ROOT.'/Log/');
         $wechat->officialAccount()->server()->preCall(function (RequestMsg $msg){
-            $msg->setMsgType(RequestConst::MSG_TYPE_TEXT);
-            $msg->setContent('hello from server');
-            return $msg;
+            $reply = new RequestedReplyMsg();
+            $reply->setMsgType(RequestConst::MSG_TYPE_TEXT);
+            $reply->setContent('hello from server');
+            return $reply;
         });
 
         $wechat->officialAccount()->server()->onMessage()->set('test',function (RequestMsg $msg){
