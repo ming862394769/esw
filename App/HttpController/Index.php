@@ -5,7 +5,7 @@ namespace App\HttpController;
 
 
 use App\Common\Service\WeChat\Index as IndexService;
-use EasySwoole\Http\AbstractInterface\Controller;
+
 
 class Index extends Base
 {

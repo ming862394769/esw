@@ -10,9 +10,9 @@ class Router extends AbstractRouter
 {
     public function initialize(RouteCollector $routeCollector)
     {
-        $routeCollector->addGroup('/WeChat', function (RouteCollector $routeCollector) {
+        /*$routeCollector->addGroup('/WeChat', function (RouteCollector $routeCollector) {
             $routeCollector->get('/index', '/WeChat/index');
-        });
+        });*/
 
     }
 }
