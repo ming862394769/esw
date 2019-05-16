@@ -5,8 +5,12 @@ namespace App\Common\Service\WeChat;
 
 
 use EasySwoole\Component\Di;
+use EasySwoole\WeChat\OfficialAccount\OfficialAccount;
 use EasySwoole\WeChat\Bean\OfficialAccount\AccessCheck;
+use EasySwoole\WeChat\Bean\OfficialAccount\RequestConst;
 use EasySwoole\WeChat\WeChat;
+use EasySwoole\WeChat\Bean\OfficialAccount\RequestMsg;
+use EasySwoole\WeChat\Bean\OfficialAccount\RequestedReplyMsg;
 
 class Index
 {
@@ -31,7 +35,20 @@ class Index
         } else if(!empty($raw)) {
             $message = $wechat->officialAccount()->server()->onMessage();
             $message->set('测试', '测试成功');
-            return $wechat->officialAccount()->server()->parserRequest($raw);
+            $wechat->officialAccount()->server()->preCall(function (RequestMsg $request,OfficialAccount $official){
+                if($request->getMsgType() == RequestConst::MSG_TYPE_TEXT){
+                    $official->server()->onMessage()->set('测试', '测试成功');
+                   $msg = new  RequestedReplyMsg();
+                   $msg->setFromUserName($request->getFromUserName());
+                   $msg->setToUserName($request->getToUserName());
+                   $msg->setCreateTime($request->getCreateTime());
+                   $msg->setMsgType($request->getMsgType());
+                   $msg->setContent('success');
+                    return $msg;
+                }
+            });
+            $response = $wechat->officialAccount()->server()->parserRequest($raw);
+
         }
         return 'ss';
     }
