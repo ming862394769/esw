@@ -36,27 +36,6 @@ class Index
             return $reply;
         });
 
-        $wechat->officialAccount()->server()->onMessage()->set('test',function (RequestMsg $msg){
-            $reply = new RequestedReplyMsg();
-            $reply->setMsgType(RequestConst::MSG_TYPE_TEXT);
-            $reply->setContent('hello from server');
-            return $reply;
-        });
-        $wechat->officialAccount()->server()->onMessage()->set(RequestConst::DEFAULT_ON_MESSAGE,function (RequestMsg $msg){
-            $reply = new RequestedReplyMsg();
-            $reply->setMsgType(RequestConst::MSG_TYPE_TEXT);
-            $reply->setContent('you say :'.$msg->getContent());
-            return $reply;
-        });
-
-        $wechat->officialAccount()->server()->onEvent()->onSubscribe(function (RequestMsg $msg){
-            var_dump("{$msg->getFromUserName()} has SUBSCRIBE");
-            $reply = new RequestedReplyMsg();
-            $reply->setMsgType(RequestConst::MSG_TYPE_TEXT);
-            $reply->setContent('Welcome to EasySwoole');
-            return $reply;
-        });
-
         $wechat->officialAccount()->server()->onEvent()->onUnSubscribe(function (RequestMsg $msg){
             var_dump("{$msg->getFromUserName()} has UBSCRIBE");
         });
@@ -79,21 +58,6 @@ class Index
             if(is_string($res)){
                 return $res;
             }
-
-            /*$message = $wechat->officialAccount()->server()->onMessage();
-            $message->set('测试', '测试成功');
-            $wechat->officialAccount()->server()->preCall(function (RequestMsg $request,OfficialAccount $official){
-                if($request->getMsgType() == RequestConst::MSG_TYPE_TEXT){
-                    $official->server()->onMessage()->set('测试', '测试成功');
-                   $msg = new  RequestedReplyMsg();
-                   $msg->setCreateTime($request->getCreateTime());
-                   $msg->setMsgType($request->getMsgType());
-                   $msg->setContent('success');
-                    return $msg;
-                }
-            });
-            $response = $wechat->officialAccount()->server()->parserRequest($raw);*/
-
         }
         return 'ss';
     }
