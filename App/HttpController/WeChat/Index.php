@@ -12,6 +12,7 @@ class Index  extends Base
     public function index()
     {
         $request = $this->request();
+        print_r($request->getRequestParam());
         $params = $this->getParams([], ['echostr', 'nonce', 'timestamp']);
         $raw = $request->getMethod() == 'POST' ? $this->request()->getBody()->__toString() : [];
         $index = new IndexService();
