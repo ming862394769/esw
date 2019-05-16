@@ -135,5 +135,6 @@ class Index
         //$wechat->officialAccount()->menu()->create($buttons);
         // create conditional menu
         $menuId = $wechat->officialAccount()->menu()->create($buttons, $matchRule);
+        var_dump($menuId);
     }
 }
