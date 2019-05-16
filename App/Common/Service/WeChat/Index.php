@@ -51,6 +51,7 @@ class Index
         $accessCheck->setEchostr($params['echostr']);
         $accessCheck->setNonce($params['nonce']);
         $accessCheck->setTimestamp($params['timestamp']);
+        $accessCheck->setSignature($params['signature']);
         return $wechat->officialAccount()->server()->accessCheck($accessCheck);
     }
 }
