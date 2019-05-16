@@ -5,6 +5,7 @@ namespace App\Common\Service\WeChat;
 
 
 use EasySwoole\Component\Di;
+use EasySwoole\Spl\SplArray;
 use EasySwoole\WeChat\OfficialAccount\OfficialAccount;
 use EasySwoole\WeChat\Bean\OfficialAccount\AccessCheck;
 use EasySwoole\WeChat\Bean\OfficialAccount\RequestConst;
@@ -75,7 +76,9 @@ class Index
             $res = $wechat->officialAccount()->server()->parserRequest($raw);
             var_dump($res);
             if(is_string($res)){
-                return $res;
+                $response = (new SplArray($res))->toXML();
+                var_dump($response);
+                return $response;
             }
 
             /*$message = $wechat->officialAccount()->server()->onMessage();
