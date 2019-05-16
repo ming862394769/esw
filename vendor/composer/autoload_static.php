@@ -18,6 +18,10 @@ class ComposerStaticInit86931f8330f95f39ee0cd3012fb72035
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
+        'e' => 
+        array (
+            'easySwoole\\Cache\\' => 17,
+        ),
         'W' => 
         array (
             'Webmozart\\Assert\\' => 17,
@@ -74,6 +78,10 @@ class ComposerStaticInit86931f8330f95f39ee0cd3012fb72035
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'easySwoole\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/cache/src',
         ),
         'Webmozart\\Assert\\' => 
         array (

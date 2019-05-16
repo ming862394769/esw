@@ -126,6 +126,60 @@
         ]
     },
     {
+        "name": "easyswoole/cache",
+        "version": "1.1.4",
+        "version_normalized": "1.1.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/easy-swoole/cache.git",
+            "reference": "3d9c20daf56bbfcd489de30a4007f240c87d7eb9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/easy-swoole/cache/zipball/3d9c20daf56bbfcd489de30a4007f240c87d7eb9",
+            "reference": "3d9c20daf56bbfcd489de30a4007f240c87d7eb9",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.6.0"
+        },
+        "time": "2018-04-27T01:39:15+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "easySwoole\\Cache\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "eValor",
+                "email": "mipone@foxmail.com",
+                "homepage": "http://evalor.cn",
+                "role": "Developer"
+            }
+        ],
+        "description": "A simple Cache Manager implementation integrated into easySwoole",
+        "homepage": "https://github.com/easy-swoole/cache",
+        "keywords": [
+            "cache",
+            "easyswoole",
+            "memcache",
+            "memcached",
+            "redis"
+        ]
+    },
+    {
         "name": "easyswoole/component",
         "version": "1.5.6",
         "version_normalized": "1.5.6.0",
