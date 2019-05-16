@@ -18,4 +18,9 @@ class Index  extends Base
         $result = $index->index($params, $raw);
         $this->response()->write($result);
     }
+    public function menu()
+    {
+        $index = new IndexService();
+        $index->menu();
+    }
 }
