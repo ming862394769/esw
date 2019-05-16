@@ -39,8 +39,6 @@ class Index
                 if($request->getMsgType() == RequestConst::MSG_TYPE_TEXT){
                     $official->server()->onMessage()->set('测试', '测试成功');
                    $msg = new  RequestedReplyMsg();
-                   $msg->setFromUserName($request->getFromUserName());
-                   $msg->setToUserName($request->getToUserName());
                    $msg->setCreateTime($request->getCreateTime());
                    $msg->setMsgType($request->getMsgType());
                    $msg->setContent('success');
