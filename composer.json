@@ -1,5 +1,6 @@
 {
     "require": {
-        "easyswoole/easyswoole": "3.x"
+        "easyswoole/easyswoole": "3.x",
+        "easyswoole/wechat": "dev-master"
     }
 }

@@ -40,12 +40,14 @@ class ComposerStaticInit86931f8330f95f39ee0cd3012fb72035
         ),
         'E' => 
         array (
+            'EasySwoole\\WeChat\\' => 18,
             'EasySwoole\\Validate\\' => 20,
             'EasySwoole\\Utility\\' => 19,
             'EasySwoole\\Trace\\' => 17,
             'EasySwoole\\Spl\\' => 15,
             'EasySwoole\\Socket\\' => 18,
             'EasySwoole\\Http\\' => 16,
+            'EasySwoole\\HttpClient\\' => 22,
             'EasySwoole\\EasySwoole\\' => 22,
             'EasySwoole\\Console\\' => 19,
             'EasySwoole\\Component\\Tests\\' => 27,
@@ -101,6 +103,10 @@ class ComposerStaticInit86931f8330f95f39ee0cd3012fb72035
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
         ),
+        'EasySwoole\\WeChat\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/wechat/src',
+        ),
         'EasySwoole\\Validate\\' => 
         array (
             0 => __DIR__ . '/..' . '/easyswoole/validate/src',
@@ -124,6 +130,10 @@ class ComposerStaticInit86931f8330f95f39ee0cd3012fb72035
         'EasySwoole\\Http\\' => 
         array (
             0 => __DIR__ . '/..' . '/easyswoole/http/src',
+        ),
+        'EasySwoole\\HttpClient\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/http-client/src',
         ),
         'EasySwoole\\EasySwoole\\' => 
         array (
