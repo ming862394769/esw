@@ -13,6 +13,5 @@ class Router extends AbstractRouter
         /*$routeCollector->addGroup('/WeChat', function (RouteCollector $routeCollector) {
             $routeCollector->get('/index', '/WeChat/index');
         });*/
-
     }
 }

@@ -19,7 +19,7 @@ return [
             'task_worker_num' => 8,
             'reload_async' => true,
             'task_enable_coroutine' => true,
-            'max_wait_time'=>5
+            'max_wait_time' => 5
         ],
     ],
     'TEMP_DIR' => null,
@@ -35,5 +35,34 @@ return [
     'DISPLAY_ERROR' => true,
     'PHAR' => [
         'EXCLUDE' => ['.idea', 'Log', 'Temp', 'easyswoole', 'easyswoole.install']
+    ],
+    /*################ MYSQL CONFIG ##################*/
+
+    'MYSQL' => [
+        'host'          => '127.0.0.1',
+        'port'          => '3306',
+        'user'          => 'root',
+        'timeout'       => '5',
+        'charset'       => 'utf8mb4',
+        'password'      => 'yangtang',
+        'database'      => 'erp',
+        'POOL_MAX_NUM'  => '20',
+        'POOL_TIME_OUT' => '0.1',
+    ],
+    /*################ REDIS CONFIG ##################*/
+    /*################ REDIS CONFIG ##################*/
+    'REDIS' => [
+        'host'          => '127.0.0.1',
+        'port'          => '6379',
+        'auth'          => '',
+        'POOL_MAX_NUM'  => '20',
+        'POOL_MIN_NUM'  => '5',
+        'POOL_TIME_OUT' => '0.1',
+    ],
+    /*################ WECHAT CONFIG ##################*/
+    'WECHAT' => [
+        'APP_ID'        => 'wxb7533d90d0055543',
+        'APP_SECRET'    => 'cf72d03538c1713562e2b75823eac2b4',
+        'TOKEN'         => 'EASYSWOOLE'
     ]
 ];
