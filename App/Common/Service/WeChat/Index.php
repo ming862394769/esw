@@ -28,12 +28,26 @@ class Index
             ->setAppSecret('cf72d03538c1713562e2b75823eac2b4')
             ->setToken('EasySwoole');
         $wechat->config()->setTempDir(EASYSWOOLE_ROOT.'/Log/');
+
+
+        $wechat->officialAccount()->server()->onMessage()->set('test',function (RequestMsg $msg){
+            $reply = new RequestedReplyMsg();
+            $reply->setMsgType(RequestConst::MSG_TYPE_TEXT);
+            $reply->setContent('hello from server');
+            return $reply;
+        });
+
         if(isset($params['echostr']) && $params['echostr']) {
             if($this->accessCheck($params, $wechat)) {
                 return is_string($params['echostr']) ? $params['echostr'] : '';
             }
         } else if(!empty($raw)) {
-            $message = $wechat->officialAccount()->server()->onMessage();
+            $res = $wechat->officialAccount()->server()->parserRequest($raw);
+            if(is_string($res)){
+                return $res;
+            }
+
+            /*$message = $wechat->officialAccount()->server()->onMessage();
             $message->set('测试', '测试成功');
             $wechat->officialAccount()->server()->preCall(function (RequestMsg $request,OfficialAccount $official){
                 if($request->getMsgType() == RequestConst::MSG_TYPE_TEXT){
@@ -45,7 +59,7 @@ class Index
                     return $msg;
                 }
             });
-            $response = $wechat->officialAccount()->server()->parserRequest($raw);
+            $response = $wechat->officialAccount()->server()->parserRequest($raw);*/
 
         }
         return 'ss';
