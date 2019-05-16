@@ -24,7 +24,7 @@ class Index
             ->setAppSecret('cf72d03538c1713562e2b75823eac2b4')
             ->setToken('EasySwoole');
         $wechat->config()->setTempDir(EASYSWOOLE_ROOT.'/Log/');
-        if(is_array($params['echostr'])) {
+        if(isset($params['echostr'])) {
             if($this->accessCheck($params, $wechat)) {
                 return is_string($params['echostr']) ? $params['echostr'] : '';
             }
