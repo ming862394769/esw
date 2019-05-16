@@ -19,6 +19,11 @@ class Index
     public function index($params, $raw) :string
     {
         $wechat = new WeChat();
+        $wechat->officialAccount()->getConfig()
+            ->setAppId('wxb7533d90d0055543')
+            ->setAppSecret('cf72d03538c1713562e2b75823eac2b4')
+            ->setToken('EasySwoole');
+        $wechat->config()->setTempDir(EASYSWOOLE_ROOT.'/Log/');
         if(is_array($params['echostr'])) {
             if($this->accessCheck($params, $wechat)) {
                 return is_string($params['echostr']) ? $params['echostr'] : '';
