@@ -16,6 +16,7 @@ class Login extends BaseController
 
     public function index()
     {
+        $this->fetch('index');
         echo 'sddsd';
     }
     public function init()

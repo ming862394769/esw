@@ -19,7 +19,7 @@ class Index extends BaseController
     }
     public function index()
     {
-        $this->fetch('index');
+        var_dump($this->response());
     }
     public function welcome()
     {
