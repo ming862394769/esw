@@ -41,7 +41,7 @@ class AppEvent
             if(is_array($file)) {
                 foreach ($file as $f) {
                     $data = require_once $f;
-                    $Conf->setConf(strtolower(basename($file, '.php')), (array)$data);
+                    $Conf->setConf(strtolower(basename($f, '.php')), (array)$data);
                 }
             }
         }
