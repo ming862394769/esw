@@ -13,6 +13,10 @@ use easySwoole\Cache\Cache;
 
 class Index extends BaseController
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
     public function index()
     {
         $this->fetch('index');
