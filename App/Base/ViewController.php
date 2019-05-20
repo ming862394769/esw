@@ -22,9 +22,9 @@ abstract class ViewController extends Controller
      * @param Request  $request
      * @param Response $response
      */
-    public function __construct(string $actionName, Request $request, Response $response)
+    public function __construct()
     {
-        $this->init($actionName, $request, $response);
+        $this->init();
         parent::__construct();
     }
 
@@ -52,7 +52,7 @@ abstract class ViewController extends Controller
         return $this->view;
     }
 
-    public function init(string $actionName, Request $request, Response $response)
+    public function init()
     {
         $this->view             = new Template();
         $tempPath               = Config::getInstance()->getConf('TEMP_DIR');     # 临时文件目录

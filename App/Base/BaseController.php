@@ -13,9 +13,9 @@ class BaseController extends ViewController
 {
     protected $config;
     protected $session;
-    public function __construct(string $actionName, Request $request, Response $response)
+    public function __construct()
     {
-        parent::__construct($actionName, $request, $response);
+        parent::__construct();
         $this->header();
     }
 
