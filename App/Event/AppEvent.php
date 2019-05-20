@@ -38,9 +38,12 @@ class AppEvent
             return;
         }
         foreach ($files as $file) {
-            print_r($file);
-            $data = require_once $file;
-            $Conf->setConf(strtolower(basename($file, '.php')), (array)$data);
+            if(is_array($file)) {
+                foreach ($file as $f) {
+                    $data = require_once $file;
+                    $Conf->setConf(strtolower(basename($file, '.php')), (array)$data);
+                }
+            }
         }
     }
 }
