@@ -6,6 +6,7 @@ namespace App\Event;
 
 use EasySwoole\EasySwoole\Config;
 use EasySwoole\Component\Singleton;
+use EasySwoole\EasySwoole\ServerManager;
 use EasySwoole\Utility\File;
 use Think\Db;
 
@@ -45,5 +46,9 @@ class AppEvent
                 }
             }
         }
+    }
+    public static function mainServerCreate(EventRegister $register): void
+    {
+
     }
 }
