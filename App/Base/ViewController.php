@@ -25,7 +25,7 @@ abstract class ViewController extends Controller
     public function __construct(string $actionName, Request $request, Response $response)
     {
         $this->init($actionName, $request, $response);
-        parent::__construct($actionName, $request, $response);
+        parent::__construct();
     }
 
     /**
