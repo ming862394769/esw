@@ -13,7 +13,10 @@ use EasySwoole\Validate\Validate;
 class BaseController extends ViewController
 {
     protected $config;
-
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     public function index()
     {

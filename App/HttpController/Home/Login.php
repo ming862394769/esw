@@ -4,19 +4,19 @@
 namespace App\HttpController\Home;
 
 
+use App\Base\BaseController;
 use EasySwoole\Http\AbstractInterface\Controller;
 
-class Login extends Controller
+class Login extends BaseController
 {
     public function __construct()
     {
         parent::__construct();
-        $this->init();
     }
 
     public function index()
     {
-
+        echo 'sddsd';
     }
     public function init()
     {
