@@ -27,6 +27,7 @@ abstract class ViewController extends Controller
     {
         $this->init();
         parent::__construct();
+        $this->response()->withHeader('Content-type', 'text/html;charset=utf-8');
     }
 
     /**
