@@ -4,10 +4,11 @@
 namespace App\HttpController;
 
 
+use App\Base\BaseController;
 use App\Common\Service\WeChat\Index as IndexService;
 
 
-class Index extends Base
+class Index extends BaseController
 {
 
     function index()
