@@ -17,4 +17,8 @@ class Index extends BaseController
     {
         $this->fetch('index');
     }
+    public function welcome()
+    {
+        echo 'sdd';
+    }
 }
