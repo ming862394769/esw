@@ -15,7 +15,7 @@ class AppEvent
     public static function frameInitialize(): void
     {
         // 载入项目 Conf 文件夹中所有的配置文件
-        self::loadConf(EASYSWOOLE_ROOT . '/Config');
+        //self::loadConf(EASYSWOOLE_ROOT . '/Config');
         self::loadConf(EASYSWOOLE_ROOT . '/App/Config');
         self::loadDB();
         include_once EASYSWOOLE_ROOT . "/App/Base/function.php";//通用函数库
