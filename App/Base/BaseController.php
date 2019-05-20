@@ -4,12 +4,13 @@
 namespace App\Base;
 
 use App\Common\Adapter\DAOAdapter;
+use EasySwoole\Http\AbstractInterface\Controller;
 use EasySwoole\Http\Message\Status;
 use EasySwoole\Http\Request;
 use EasySwoole\Http\Response;
 use EasySwoole\Validate\Validate;
 
-class BaseController extends ViewController
+class BaseController extends Controller
 {
     protected $config;
 
