@@ -17,6 +17,19 @@ abstract class ViewController extends Controller
     protected $action;
 
     /**
+     * 初始化模板引擎
+     * ViewController constructor.
+     * @param string   $actionName
+     * @param Request  $request
+     * @param Response $response
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->init();
+    }
+
+    /**
      * 输出模板到页面
      * @param  string|null $template 模板文件
      * @param array        $vars 模板变量值
