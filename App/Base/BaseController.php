@@ -10,7 +10,7 @@ use EasySwoole\Http\Request;
 use EasySwoole\Http\Response;
 use EasySwoole\Validate\Validate;
 
-class BaseController extends Controller
+class BaseController extends ViewController
 {
     protected $config;
 

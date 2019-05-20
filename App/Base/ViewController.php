@@ -25,9 +25,8 @@ abstract class ViewController extends Controller
      */
     public function __construct()
     {
-        $this->init();
         parent::__construct();
-        $this->response()->withHeader('Content-type', 'text/html;charset=utf-8');
+        $this->init();
     }
 
     /**
@@ -56,6 +55,7 @@ abstract class ViewController extends Controller
 
     public function init()
     {
+        $this->response()->withHeader('Content-type', 'text/html;charset=utf-8');
         $this->view             = new Template();
         $tempPath               = Config::getInstance()->getConf('TEMP_DIR');     # 临时文件目录
         $class_name_array       = explode('\\', static::class);
