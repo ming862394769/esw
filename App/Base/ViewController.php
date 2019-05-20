@@ -14,6 +14,7 @@ use think\Template;
 abstract class ViewController extends Controller
 {
     private $view;
+    protected $action;
 
     /**
      * 初始化模板引擎
